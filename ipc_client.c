@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define FIFO_NAME       "/tmp/c_fifo"
+#define FIFO_NAME    "/tmp/c_fifo"
 
 struct RequestClient {
     pid_t pid;
