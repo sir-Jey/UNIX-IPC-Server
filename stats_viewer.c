@@ -14,8 +14,8 @@
 #define MAX_UIDS            1000
 #define LEN_LAST_PIDS       10
 #define ROOT                0
-#define USER1               501  /* the first USER  */
-#define USER2               502  /* the second USER */
+#define USER1               501  /* the first  USER (1)  */
+#define USER2               502  /* the second USER (2) */
 
 struct ServerStats {
     int total_requests;
