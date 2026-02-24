@@ -1,11 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#define _GNU_SOURCE
 
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
 #include <sys/mman.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define SHM_STATS_FILE      "server_stats.file"
 #define SHM_SIZE            (1024 * 1024)
