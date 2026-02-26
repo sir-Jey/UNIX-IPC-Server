@@ -103,7 +103,7 @@ int main(int argc, char *argv[], char *envp[])
     to_daemon(daemon_name);
 
     if (already_running() < 0) {
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     
     //syslog(LOG_INFO, "СЕРВЕР ЗАПУЩЕН");
