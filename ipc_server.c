@@ -142,7 +142,7 @@ int main(int argc, char *argv[], char *envp[])
     if (semServerStats == SEM_FAILED) {
         syslog(LOG_ERR, "невозможно создать семафор: %s", strerror(errno));
         cleanup();
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     sleep(1);
