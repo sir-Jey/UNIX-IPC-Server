@@ -276,7 +276,7 @@ int main(int argc, char *argv[], char *envp[])
     pthread_mutex_unlock(&mtxActiveThr);
     
     cleanup();
-    exit(0);
+    exit(EXIT_SUCCESS);
 }
 
 void default_stats(void) 
