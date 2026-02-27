@@ -65,18 +65,18 @@ pthread_cond_t condActiveThr = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t mtxActiveThr = PTHREAD_MUTEX_INITIALIZER;
 
 
-struct RequestClient {
+typedef struct {
     pid_t pid;
     char message[BUFSIZ];
-};
+} request_client_t;
 
-struct ServerStats {
+typedef struct {
     int total_requests;      
     int uid_counts[MAX_UIDS];
     pid_t last_pids[LEN_LAST_PIDS];
     int last_index;            
-};
-struct ServerStats *stats;
+} server_stats_t;
+server_stats_t *stats;
 
 struct {
     int *uids;
@@ -206,7 +206,7 @@ void main(int argc, char *argv[], char *envp[])
     pfd.fd = fd;
     pfd.events = POLLIN;
 
-    struct RequestClient *req;
+    request_client_t *req;
     while(server_running) {
 
         int ret = poll(&pfd, 1, POLL_TIMEOUT);
@@ -236,7 +236,7 @@ void main(int argc, char *argv[], char *envp[])
 
         if (pfd.revents & POLLIN) {
             int nbyte;
-            req = (struct RequestClient *)malloc(sizeof(*req));
+            req = (request_client_t *)malloc(sizeof(*req));
             if (!req) {
                 syslog(LOG_ERR, "malloc: %s", strerror(errno));
                 cleanup();
@@ -299,13 +299,13 @@ void *handle_client(void *arg) {
     active_pthreads ++;
     pthread_mutex_unlock(&mtxActiveThr);
 
-    struct RequestClient *req = (struct RequestClient *)arg;
+    request_client_t *req = (request_client_t *)arg;
     if (req->pid <= 0) {
         syslog(LOG_ERR, "Получен запрос от клиента который неверно передал свой PID: %d",
             req->pid);
         return ((void *) 0);
     }
-
+ 
     int white_list[4] = {ROOT, USER1, USER2};
     int uid_is_white = 0;
     uid_t uid_client = get_uid_by_pid(req->pid);
