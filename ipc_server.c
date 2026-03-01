@@ -143,8 +143,6 @@ void main(int argc, char *argv[], char *envp[])
     syslog(LOG_INFO, "СЕРВЕР ЗАПУЩЕН");
     default_stats();
 
-    //syslog(LOG_INFO, "значения по умолчанию установлены");
-
     sa.sa_flags = 0;
     sigemptyset(&sa.sa_mask);
     sa.sa_handler = SIG_DFL;
