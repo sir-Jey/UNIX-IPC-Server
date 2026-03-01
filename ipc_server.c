@@ -113,7 +113,6 @@ void main(int argc, char *argv[], char *envp[])
         exit(EXIT_FAILURE);
     }
     
-    //syslog(LOG_DEBUG, "ftruncate...");
     if (ftruncate(shm_fd, SHM_SIZE) < 0) {
         syslog(LOG_ERR, "ftruncate: %s", strerror(errno));
         close(shm_fd);
