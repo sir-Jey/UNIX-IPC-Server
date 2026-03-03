@@ -489,12 +489,12 @@ void to_daemon(const char *cmd)
         perror("fork");
         exit(1);
     } else if (pid > 0) {
-        exit(0);
+        exit(EXIT_SUCCESS);
     }
 
     if (chdir("/") < 0) {
         perror("chdir in '/'");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     if (rl.rlim_max == RLIM_INFINITY) rl.rlim_max = 1024;
