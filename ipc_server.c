@@ -222,7 +222,7 @@ void main(int argc, char *argv[], char *envp[])
         if (pfd.revents & POLLNVAL) {
             syslog(LOG_ERR, "дескриптор %d неверный (закрыт или никогда не открывался)",fd);
             cleanup();
-            exit(1);
+            exit(EXIT_FAILURE);
         }
 
         if (pfd.revents & POLLIN) {
