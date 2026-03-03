@@ -317,7 +317,7 @@ void *handle_client(void *arg) {
     if (sem_wait(semServerStats) < 0) {
         syslog(LOG_ERR, "sem_wait: %s", strerror(errno));
         cleanup();
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     stats->uid_counts[uid_client]++;
