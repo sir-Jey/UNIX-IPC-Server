@@ -210,7 +210,7 @@ void main(int argc, char *argv[], char *envp[])
         if (pfd.revents & POLL_ERR) {
             syslog(LOG_ERR, "соединение сломалось: %s", strerror(errno));
             cleanup();
-            exit(1);
+            exit(EXIT_FAILURE);
         }
 
         if (pfd.revents & POLL_HUP) {
