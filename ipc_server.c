@@ -150,7 +150,7 @@ void main(int argc, char *argv[], char *envp[])
         syslog(LOG_ERR, "sigaction: невозможно перехватить сигнал SIGHUP:\
 %s", strerror(errno));
             cleanup();
-            exit(1);
+            exit(EXIT_FAILURE);
     }
     if (sigaction(SIGCHLD, &sa, NULL) < 0) {
         syslog(LOG_ERR, "sigaction: невозможно перехватить сигнал SIGCHLD:\
