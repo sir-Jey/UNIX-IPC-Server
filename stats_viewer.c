@@ -1,10 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/mman.h>
+#include <sysexits.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define SHM_STATS_FILE      "server_stats.file"
 #define SHM_SIZE            (1024 * 1024)
