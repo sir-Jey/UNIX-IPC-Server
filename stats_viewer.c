@@ -46,5 +46,5 @@ int main(void) {
         printf("%d%s", stats->last_pids[i], i == LEN_LAST_PIDS-1 ? "\n" : ":");
     }
 
-    return (0);
+    exit(EX_OK);
 }
