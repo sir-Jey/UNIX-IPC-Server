@@ -232,7 +232,7 @@ void main(int argc, char *argv[], char *envp[])
             if (!req) {
                 syslog(LOG_ERR, "malloc: %s", strerror(errno));
                 cleanup();
-                exit(1);
+                exit(EXIT_FAILURE);
             }
             if ((nbyte = read(fd, req, sizeof(*req))) < 0) {
                 syslog(LOG_ERR, "read file %s: %s\n", FIFO_NAME, strerror(errno));
