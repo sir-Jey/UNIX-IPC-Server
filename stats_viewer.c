@@ -1,7 +1,7 @@
-#include <fcntl.h>
-#include <unistd.h>
 #include <sys/mman.h>
 #include <sysexits.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 #include <stdio.h>
 #include <stdlib.h>
