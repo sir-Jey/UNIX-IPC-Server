@@ -1,13 +1,12 @@
 #define _GNU_SOURCE
 
-#include <ctype.h>
 #include <sys/stat.h>
 #include <sys/resource.h>
 #include <sys/lock.h>
 #include <sys/sysctl.h> 
 #include <sys/mman.h> /* POSIX IPC */
 #include <sysexits.h>
-
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
