@@ -432,7 +432,7 @@ int already_running(void)
         }
         close(fd);
         closelog();
-        exit(0);
+        exit(EXIT_SUCCESS);
     }
 
     ftruncate(fd, 0);
