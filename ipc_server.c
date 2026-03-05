@@ -251,7 +251,7 @@ void main(int argc, char *argv[], char *envp[])
                     syslog(LOG_ERR, "pthread_create (handle_client): %s", strerror(errno));
                     pthread_attr_destroy(&attr);
                     cleanup();
-                    exit(1);
+                    exit(EXIT_FAILURE);
                 }
                 pthread_attr_destroy(&attr);
             }
