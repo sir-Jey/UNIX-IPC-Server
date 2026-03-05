@@ -103,7 +103,7 @@ int main(int argc, char *argv[], char *envp[])
     to_daemon(daemon_name);
 
     if (already_running() < 0)
-        exit(EXIT_FAILURE);
+        exit(1);
     
     shm_unlink(SHM_STATS_FILE);
     shm_fd = shm_open(SHM_STATS_FILE, O_CREAT | O_RDWR, 0644);
