@@ -182,7 +182,7 @@ void main(int argc, char *argv[], char *envp[])
         if (errno != EEXIST) {
             syslog(LOG_ERR, "mkfifo: %s", strerror(errno));
             cleanup();
-            exit(1);
+            exit(EXIT_FAILURE);
         }
     }
 
